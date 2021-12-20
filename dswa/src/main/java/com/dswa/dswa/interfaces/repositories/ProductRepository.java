@@ -1,4 +1,6 @@
 package com.dswa.dswa.interfaces.repositories;
 
-public interface ProductRepository extends GenericRepository {
+import com.dswa.dswa.models.ProductModel;
+
+public interface ProductRepository extends GenericRepository<ProductModel> {
 }

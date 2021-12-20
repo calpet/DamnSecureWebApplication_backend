@@ -1,4 +1,6 @@
 package com.dswa.dswa.interfaces.services;
 
-public interface ProductService extends GenericService {
+import com.dswa.dswa.models.ProductModel;
+
+public interface ProductService extends GenericService<ProductModel> {
 }
