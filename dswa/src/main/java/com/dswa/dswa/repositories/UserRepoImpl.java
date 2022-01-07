@@ -13,9 +13,9 @@ public class UserRepoImpl implements UserRepository {
 
     public UserRepoImpl() {
         allUsers = new ArrayList<>();
-        allUsers.add(new UserModel(1,"Peter","Parker","PizzaBoy@BrooklinsPizza.com","StrongPassword123"));
+        allUsers.add(new UserModel(1,"Student","Fontys","Student@Fontys.nl","$2a$12$pt2J4EvcZU.ChG/7EPsEfOROwWWvk0ChiZdYoUukAFHnDExpY5Awe"));
         allUsers.add(new UserModel(2,"Peter","Parker","PizzaBoy@BrooklinsPizza.com","StrongPassword123"));
-        allUsers.add(new UserModel(3,"Peter","Parker","PizzaBoy@BrooklinsPizza.com","StrongPassword123"));
+        allUsers.add(new UserModel(3,"John","Doe","John.Doe@outlook.com","123456789"));
 
     }
 
@@ -23,4 +23,17 @@ public class UserRepoImpl implements UserRepository {
         return allUsers;
     }
 
+    public UserModel findByEmail(String email){
+        for (UserModel user : getAll()) {
+            if(!CompareEmails(user, email)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+
+    public boolean CompareEmails(UserModel user, String email) {
+        return user.getEmail() == email;
+    }
 }
