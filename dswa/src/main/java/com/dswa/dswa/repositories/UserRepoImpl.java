@@ -13,7 +13,7 @@ public class UserRepoImpl implements UserRepository {
 
     public UserRepoImpl() {
         allUsers = new ArrayList<>();
-        allUsers.add(new UserModel(1,"Student","Fontys","Student@Fontys.nl","$2a$12$pt2J4EvcZU.ChG/7EPsEfOROwWWvk0ChiZdYoUukAFHnDExpY5Awe"));
+        allUsers.add(new UserModel(1,"Student","Fontys","Student@Fontys.nl","$2a$12$zySTIeqA5C1A7TnpFkt6IuKw/CEOMKfRabDzBvJnF52tZzbKHF8QK"));
         allUsers.add(new UserModel(2,"Peter","Parker","PizzaBoy@BrooklinsPizza.com","StrongPassword123"));
         allUsers.add(new UserModel(3,"John","Doe","John.Doe@outlook.com","123456789"));
 

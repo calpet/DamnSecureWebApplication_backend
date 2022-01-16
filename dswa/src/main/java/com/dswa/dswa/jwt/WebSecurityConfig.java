@@ -64,14 +64,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors(Customizer.withDefaults())
                 // dont authenticate this particular request
                 .authorizeRequests().antMatchers("/authenticate").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
-                .antMatchers("/api/async/**").permitAll()
-                .antMatchers("/gs-guide-websocket/**").permitAll()
-                .antMatchers("/topic/**").permitAll()
-                .antMatchers("/app/**").permitAll()
-                .antMatchers("/socket/**").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("USER")
+                .antMatchers(HttpMethod.POST, "/api/**").hasRole("USER")
+                .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority()
+
                 // all other requests need to be authenticated
                 .anyRequest().authenticated().and()
                 // make sure we use stateless session; session won't be used to

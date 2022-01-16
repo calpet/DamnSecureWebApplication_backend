@@ -23,7 +23,7 @@ public class JWTUserDetailsService implements UserDetailsService {
         var entity = userRepository.findByEmail(username);
         List<SimpleGrantedAuthority> roles = null;
         if (entity != null) {
-                roles = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+                roles = Arrays.asList(new SimpleGrantedAuthority("USER"));
                 return new User(entity.getEmail(), entity.getPassword(), roles);
 
         }

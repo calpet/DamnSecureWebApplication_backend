@@ -4,14 +4,15 @@ import com.dswa.dswa.jwt.JwtTokenUtil;
 import com.dswa.dswa.models.JwtRequest;
 import com.dswa.dswa.models.JwtResponse;
 import com.dswa.dswa.services.JWTUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class JWTAuthenticationController {
@@ -28,6 +29,11 @@ public class JWTAuthenticationController {
         this.jwtTokenUtil = jwtTokenUtil;
         this.userDetailsService = userDetailsService;
     }
+    @GetMapping({ "/login" })
+    public ResponseEntity<String> login(){
+        return ResponseEntity.ok("Successfully logged in.");
+    }
+
 
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
