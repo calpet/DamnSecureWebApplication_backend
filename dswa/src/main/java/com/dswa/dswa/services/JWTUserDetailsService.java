@@ -1,5 +1,6 @@
 package com.dswa.dswa.services;
 
+
 import com.dswa.dswa.interfaces.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,7 +16,7 @@ import java.util.List;
 @Service
 public class JWTUserDetailsService implements UserDetailsService {
 
-    @Autowired
+    @Autowired(required = true)
     private UserRepository userRepository;
 
     @Override

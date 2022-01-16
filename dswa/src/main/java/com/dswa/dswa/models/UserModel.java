@@ -1,10 +1,25 @@
 package com.dswa.dswa.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="user")
 public class UserModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "userid")
     private int id;
+
+    @Column(name = "firstname")
     private String firstname;
+
+    @Column(name = "lastname")
     private String lastname;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
     private String password;
 
     public UserModel() {

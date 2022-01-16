@@ -6,4 +6,12 @@ import java.util.List;
 
 public interface GenericService<T> {
     List<T> getAll();
+
+    T getById(int id);
+
+    boolean create(T entity);
+
+    T update(T entity);
+
+    void delete(int id);
 }

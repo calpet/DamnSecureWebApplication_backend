@@ -1,7 +1,10 @@
 package com.dswa.dswa.interfaces.services;
 
 import com.dswa.dswa.models.UserModel;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserService extends GenericService<UserModel> {
-        UserModel findbyEmail(String email);
+        void PasswordEncoder(UserModel user);
+        boolean CheckForDoubleEmails(UserModel user);
 }

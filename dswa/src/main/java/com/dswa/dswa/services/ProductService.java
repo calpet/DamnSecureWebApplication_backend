@@ -20,4 +20,24 @@ public class ProductService implements com.dswa.dswa.interfaces.services.Product
     public List<ProductModel> getAll() {
         return productRepository.getAll();
     }
+
+    @Override
+    public ProductModel getById(int id) {
+        return null;
+    }
+
+    @Override
+    public boolean create(ProductModel entity) {
+        return false;
+    }
+
+    @Override
+    public ProductModel update(ProductModel entity) {
+        return null;
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
 }
