@@ -6,12 +6,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class UserService implements com.dswa.dswa.interfaces.services.UserService{
 
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
+    private static final String PASSWORD_PATTERN =
+            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
+    private static final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
 
     public UserService(UserRepository repository, PasswordEncoder passwordEncoder) {
         this.repository  = repository;
@@ -70,5 +75,10 @@ public class UserService implements com.dswa.dswa.interfaces.services.UserServic
             }
         }
         return doublevalues;
+    }
+    @Override
+    public boolean Validepassword(UserModel entity){
+        Matcher matcher = pattern.matcher(entity.getPassword());
+        return matcher.matches();
     }
 }
