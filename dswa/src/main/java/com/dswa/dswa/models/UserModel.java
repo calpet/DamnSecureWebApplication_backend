@@ -1,5 +1,7 @@
 package com.dswa.dswa.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,15 +13,19 @@ public class UserModel {
     private int id;
 
     @Column(name = "firstname")
+    @NotNull
     private String firstname;
 
     @Column(name = "lastname")
+    @NotNull
     private String lastname;
 
     @Column(name = "email")
+    @NotNull
     private String email;
 
     @Column(name = "password")
+    @NotNull
     private String password;
 
     public UserModel() {
