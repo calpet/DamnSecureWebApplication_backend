@@ -90,6 +90,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         configuration.addAllowedOriginPattern("http://localhost:8081");
         configuration.setAllowCredentials(true);
         configuration.addAllowedMethod("DELETE");
+        configuration.addAllowedHeader("POST");
         configuration.addAllowedMethod("PUT");
 
         source.registerCorsConfiguration("/**", configuration);
