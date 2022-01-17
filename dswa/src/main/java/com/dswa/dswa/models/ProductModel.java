@@ -1,14 +1,29 @@
 package com.dswa.dswa.models;
 
-public class ProductModel {
-    private int id;
-    private String name;
-    private String description;
+import javax.persistence.*;
 
-    public ProductModel(int id, String name, String description) {
+@Entity
+@Table(name="product")
+public class ProductModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private int id;
+
+    @Column(name= "Brand_name")
+    private String name;
+
+    @Column(name="Product_name")
+    private String productname;
+
+    @Column(name="Stocklevels")
+    private int stocklevels;
+
+    public ProductModel(int id, String name, String productname, int stocklevels) {
         this.id = id;
         this.name = name;
-        this.description = description;
+        this.productname = productname;
+        this.stocklevels = stocklevels;
     }
 
     public ProductModel() {
@@ -30,11 +45,16 @@ public class ProductModel {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getProductname() {
+        return productname;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProductname(String description) {
+        this.productname = description;
     }
+
+    public int getStocklevels(){return stocklevels;}
+    public void setStocklevels(int stocklevels){this.stocklevels = stocklevels;}
+
+
 }
