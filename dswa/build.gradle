@@ -7,6 +7,8 @@ plugins {
 group = 'com.dswa'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+apply plugin: 'war'
+
 
 repositories {
 	mavenCentral()
@@ -20,13 +22,13 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.hsqldb:hsqldb:2.5.0'
 	implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
+
 	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
 	implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.6.1'
 
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
-
-
-
+	//Provide Tomcat runtime:
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
 
 test {
