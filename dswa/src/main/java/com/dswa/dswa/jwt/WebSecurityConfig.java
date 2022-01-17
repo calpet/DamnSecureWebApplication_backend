@@ -64,6 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors(Customizer.withDefaults())
                 // dont authenticate this particular request
                 .authorizeRequests().antMatchers("/authenticate").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/user").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("USER")
                 .antMatchers(HttpMethod.POST, "/api/**").hasRole("USER")
                 .antMatchers(HttpMethod.PUT, "/api/**").hasRole("USER")

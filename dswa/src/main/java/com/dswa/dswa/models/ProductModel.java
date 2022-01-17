@@ -1,5 +1,7 @@
 package com.dswa.dswa.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,12 +13,15 @@ public class ProductModel {
     private int id;
 
     @Column(name= "Brand_name")
+    @NotNull
     private String name;
 
     @Column(name="Product_name")
+    @NotNull
     private String productname;
 
     @Column(name="Stocklevels")
+    @NotNull
     private int stocklevels;
 
     public ProductModel(int id, String name, String productname, int stocklevels) {

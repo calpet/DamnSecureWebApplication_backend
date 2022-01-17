@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api")
 public class UserController {
 
     private final UserService userService;
@@ -21,7 +21,7 @@ public class UserController {
     }
 
 
-    @GetMapping
+    @GetMapping("/user")
     @ResponseBody
     public ResponseEntity<?> getAllUsers() {
         try {
@@ -31,5 +31,17 @@ public class UserController {
         catch (Exception exception){
             return new ResponseEntity<>(exception,HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PostMapping("/user")
+    @ResponseBody
+    public ResponseEntity<?> createUser(@RequestBody UserModel user) {
+        boolean doubleEmails = this.userService.CheckForDoubleEmails(user);
+
+        if (doubleEmails) {
+            return ResponseEntity.badRequest().body("This user already exists! Please consider logging in.");
+        }
+        this.userService.create(user);
+        return ResponseEntity.ok(user);
     }
 }
